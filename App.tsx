@@ -20,14 +20,14 @@ const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
 const DATA = [
-  {id: '1', name: 'Product A'},
-  {id: '2', name: 'Product B'},
-  {id: '4', name: 'Product C'},
-  {id: '5', name: 'Product D'},
-  {id: '6', name: 'Product E'},
-  {id: '7', name: 'Product F'},
-  {id: '8', name: 'Product G'},
-  {id: '9', name: 'Product H'},
+  {id: '1', name: 'SAMSUNG'},
+  {id: '2', name: 'OPPO'},
+  {id: '4', name: 'VIVO'},
+  {id: '5', name: 'APPLE'},
+  {id: '6', name: 'REDMI'},
+  {id: '7', name: 'NOKIA'},
+  {id: '8', name: 'LENOVO'},
+  {id: '9', name: 'MOTOROLA'},
 ];
 
 function HomeScreen({navigation}: any) {
@@ -64,10 +64,13 @@ function HomeScreen({navigation}: any) {
     showsHorizontalScrollIndicator={false}
     contentContainerStyle={styles.tabsContainer}
   >
+    <Text style={styles.tab}>Profile</Text>
+    <Text style={styles.tab}>Projet Deadline</Text>
     <Text style={styles.tab}>Submitted Activity</Text>
     <Text style={styles.tab}>Raised Request</Text>
     <Text style={styles.tab}>Leave History</Text>
     <Text style={styles.tab}>Approvals</Text>
+    
   </ScrollView>
 
 </View>
@@ -189,6 +192,10 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator screenOptions={{headerShown: false}}>
         <Drawer.Screen name="Dashboard" component={BottomTabs} />
+        <Drawer.Screen name="Schedule" component={BottomTabs} />
+        <Drawer.Screen name="Settings" component={BottomTabs} />
+        <Drawer.Screen name="Sign out" component={BottomTabs} />
+        
       </Drawer.Navigator>
     </NavigationContainer>
   );
