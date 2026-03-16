@@ -15,6 +15,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Calendar} from 'react-native-calendars';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,13 +36,14 @@ function HomeScreen({navigation}: any) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
   const [currentMonth, setCurrentMonth] = useState(
-  new Date().toISOString().split('T')[0] // today
+  new Date().toISOString().split('T')[0] 
   );
   const filtered = DATA.filter(item =>
     item.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
+    
     <View style={{flex: 1}}>
 
       <View style={styles.header}>
@@ -146,11 +148,13 @@ function HomeScreen({navigation}: any) {
       </TouchableOpacity>
 
     </View>
+    
   );
 }
 
 function BottomTabs() {
   return (
+    
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
@@ -183,12 +187,15 @@ function BottomTabs() {
         }}
       />
     </Tab.Navigator>
+    
   );
 }
   
 
 export default function App() {
   return (
+    <SafeAreaProvider>
+    
     <NavigationContainer>
       <Drawer.Navigator screenOptions={{headerShown: false}}>
         <Drawer.Screen name="Dashboard" component={BottomTabs} />
@@ -198,6 +205,8 @@ export default function App() {
         
       </Drawer.Navigator>
     </NavigationContainer>
+    
+    </SafeAreaProvider>
   );
 }
 
